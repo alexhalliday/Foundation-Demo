@@ -56,7 +56,6 @@
         ],
         "responses": {
           "200": {
-            "description": "",
             "schema": {
               "$ref": "https://sales.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=52&deref=bundle"
             },
