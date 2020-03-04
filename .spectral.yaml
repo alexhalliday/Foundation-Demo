@@ -1,4 +1,3 @@
-formats: ["oas2"]
 extends:
   - 'spectral:oas'
 functions: [equals]
@@ -32,13 +31,13 @@ rules:
   response-code-detection:
     description: Detects missing response codes as required by the styleguide.
     message: This operation is missing response codes.
-    given: $.paths.[*].[*].responses
+    given: $.paths.[*].[*].responses.*
     recommended: true
     type: style
     severity: info
     then:
+      field: responses
       function: pattern
       functionOptions:
         match:
-          - 200
-          - 400
+          - 202
