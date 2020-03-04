@@ -17,8 +17,8 @@ rules:
         match: Stoplight
 
   consumed-as-produced:
-    description: Mediatype match between consumes and produces parameters.
-    message: Mediatype match between consumes and produces parameters.
+    description: Mediatype mismatch between consumes and produces parameters.
+    message: Mediatype mismatch between consumes and produces parameters.
     given: $.paths.[*].post
     recommended: true
     type: style
@@ -28,3 +28,17 @@ rules:
       functionOptions:
         left: consumes
         right: produces
+  
+  response-code-detection:
+    description: Detects missing response codes as required by the styleguide.
+    message: This operation is missing response codes.
+    given: $.paths.[*].[*].responses
+    recommended: true
+    type: style
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match:
+          - 200
+          - 400
