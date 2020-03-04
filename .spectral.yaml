@@ -30,14 +30,13 @@ rules:
   
   response-code-detection:
     description: Detects missing response codes as required by the styleguide.
-    message: This operation is missing response codes.
-    given: $.paths.[*].[*].responses.*
+    message: This operation is missing response codes {{values}} at {{path}}.
+    given: $.paths.[*].[*].responses.
     recommended: true
     type: style
-    severity: info
+    severity: warn
     then:
-      field: responses
-      function: pattern
+      function: enumeration
       functionOptions:
-        match:
-          - 202
+        values:
+          - 200
