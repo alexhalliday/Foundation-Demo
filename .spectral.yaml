@@ -1,0 +1,30 @@
+formats: ["oas2"]
+extends:
+  - 'spectral:oas'
+functions: [equals]
+
+rules:
+  info-matches-stoplight:
+    description: This is an example rule
+    message: Info must contain Stoplight
+    given: $.info
+    recommended: true
+    type: style
+    then:
+      field: title
+      function: pattern
+      functionOptions:
+        match: Stoplight
+
+  consumed-as-produced:
+    description: Mediatype match between consumes and produces parameters.
+    message: Mediatype match between consumes and produces parameters.
+    given: $.paths.[*].post
+    recommended: true
+    type: style
+    severity: warn
+    then:
+      function: equals
+      functionOptions:
+        left: consumes
+        right: produces
