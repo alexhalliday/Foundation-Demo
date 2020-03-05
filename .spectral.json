@@ -1,0 +1,26 @@
+{
+  "formats": [
+    "oas2"
+  ],
+  "extends": [
+    "spectral:oas"
+  ],
+  "rules": {
+    "valid-responses": {
+      "description": "Operation must have both `200` and `400` responses",
+      "type": "validation",
+      "given": "$.paths.*[?( @property === 'get' || @property === 'put' || @property === 'post' || @property === 'delete' || @property === 'options' || @property === 'head' || @property === 'patch' || @property === 'trace' )].responses",
+      "then": {
+        "function": "schema",
+        "functionOptions": {
+          "schema": {
+            "type": "object",
+            "required": [
+              "200"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
