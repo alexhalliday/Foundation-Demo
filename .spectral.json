@@ -1,13 +1,10 @@
 {
-  "formats": [
-    "oas2"
-  ],
   "extends": [
     "spectral:oas"
   ],
   "rules": {
     "valid-responses": {
-      "description": "Operation must have both `200` and `400` responses",
+      "description": "Operation must have a `200` response code",
       "type": "validation",
       "given": "$.paths.*[?( @property === 'get' || @property === 'put' || @property === 'post' || @property === 'delete' || @property === 'options' || @property === 'head' || @property === 'patch' || @property === 'trace' )].responses",
       "then": {
