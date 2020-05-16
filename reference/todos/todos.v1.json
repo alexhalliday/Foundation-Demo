@@ -15,9 +15,9 @@
     },
     "termsOfService": "https://stoplight.io/terms"
   },
-  "host": "todos.stoplight.io",
+  "host": "127.0.0.1:3100",
   "schemes": [
-    "https"
+    "http"
   ],
   "consumes": [
     "application/json"
@@ -50,13 +50,13 @@
       ],
       "get": {
         "operationId": "GET_todo",
-        "summary": "Get Todo",
+        "summary": "THIS IS WORKING",
         "tags": [
           "Todos"
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "dsadsad dsa dsa dsa dsa dsa",
             "schema": {
               "title": "Todo Full",
               "allOf": [

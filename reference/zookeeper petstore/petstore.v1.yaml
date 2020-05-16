@@ -96,6 +96,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/zookeeper petstore/error.v1.yaml
+      summary: AND THIS
     post:
       description: Creates a new pet in the store. Duplicates are allowed
       operationId: addPet
